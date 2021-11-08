@@ -4,57 +4,62 @@
 // #include <bits/stdc++.h>
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
 using namespace std;
 
 // } Driver Code Ends
 // User function template for C++
-struct pair_hash
-{
-    inline std::size_t operator()(const std::pair<int, int> &v) const
-    {
-        return v.first * 31 + v.second;
-    }
-};
 class Solution
 {
 public:
     vector<string> findPath(vector<vector<int>> &m, int n)
     {
-        std::vector<std::string> res;
-        if (m[0][0] == 0)
-        {
-            return res;
-        }
-        std::unordered_set<std::pair<int, int>, pair_hash> set;
-        recur(res, m, n, 0, 0, set, "");
-        std::sort(res.begin(), res.end());
-        return res;
+        vector<string> ans;
+        vector<vector<int>> vis(n, vector<int>(n, 0));
+        if (m[0][0] == 1)
+            solve(0, 0, m, n, ans, "", vis);
+        return ans;
     }
-    void recur(std::vector<std::string> &res, vector<vector<int>> &m, int n, int i, int j, std::unordered_set<std::pair<int, int>, pair_hash> set, string path)
+    void solve(int i, int j, vector<vector<int>> &a, int n, vector<string> &ans, string move, vector<vector<int>> &vis)
     {
         if (i == n - 1 && j == n - 1)
         {
-            res.push_back(path);
+            ans.push_back(move);
             return;
         }
-        set.insert(std::make_pair(i, j));
-        if (i != n - 1 && m[i + 1][j] != 0 && set.count(std::make_pair(i + 1, j)) == 0)
+        // downword
+        // set.insert(std::make_pair(i,j));
+        if (i + 1 < n && !vis[i + 1][j] && a[i + 1][j] == 1)
         {
-            recur(res, m, n, i + 1, j, set, path + "D");
+            // recur(res,m,n,i+1,j,set,path+"D");
+            vis[i][j] = 1;
+            solve(i + 1, j, a, n, ans, move + 'D', vis);
+            vis[i][j] = 0;
         }
-        if (i != 0 && m[i - 1][j] != 0 && set.count(std::make_pair(i - 1, j)) == 0)
+
+        // left
+        if (j - 1 >= 0 && !vis[i][j - 1] && a[i][j - 1] == 1)
         {
-            recur(res, m, n, i - 1, j, set, path + "U");
+            // recur(res,m,n,i+1,j,set,path+"D");
+            vis[i][j] = 1;
+            solve(i, j - 1, a, n, ans, move + 'L', vis);
+            vis[i][j] = 0;
         }
-        if (j != n - 1 && m[i][j + 1] != 0 && set.count(std::make_pair(i, j + 1)) == 0)
+        // right
+        if (j + 1 < n && !vis[i][j + 1] && a[i][j + 1] == 1)
         {
-            recur(res, m, n, i, j + 1, set, path + "R");
+            // recur(res,m,n,i+1,j,set,path+"D");
+            vis[i][j] = 1;
+            solve(i, j + 1, a, n, ans, move + 'R', vis);
+            vis[i][j] = 0;
         }
-        if (j != 0 && m[i][j - 1] != 0 && set.count(std::make_pair(i, j - 1)) == 0)
+        // upward
+        if (i - 1 >= 0 && !vis[i - 1][j] && a[i - 1][j] == 1)
         {
-            recur(res, m, n, i, j - 1, set, path + "L");
+            // recur(res,m,n,i+1,j,set,path+"D");
+            vis[i][j] = 1;
+            solve(i - 1, j, a, n, ans, move + 'U', vis);
+            vis[i][j] = 0;
         }
     }
 };
@@ -86,5 +91,4 @@ int main()
     cout << endl;
     // }
     return 0;
-} 
-// } Driver Code Ends
+} // } Driver Code Ends
