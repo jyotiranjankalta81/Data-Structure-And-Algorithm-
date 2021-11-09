@@ -23,7 +23,7 @@ void merge(int arr[], int l, int mid, int r)
     int k = l;
     while (i < n1 && j < n2)
     {
-        if (a[i] < b[i])
+        if (a[i] < b[j])
         {
             arr[k] = a[i];
             k++;
@@ -67,7 +67,7 @@ void mergeSort(int arr[], int l, int r)
 int main()
 {
     int arr[] = {6, 5, 4, 3, 2, 1};
-    mergeSort(arr, 0, 4);
+    mergeSort(arr, 0, 5);
     for (int i = 0; i < 6; i++)
     {
         cout << arr[i] << " ";
