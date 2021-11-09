@@ -64,14 +64,14 @@ void mergeSort(int arr[], int l, int r)
     }
 }
 
-int main(){
-    int arr[]={5,4,3,2,1};
-    mergeSort(arr,0,4);
-    for (int i = 0; i <5; i++)
+int main()
+{
+    int arr[] = {6, 5, 4, 3, 2, 1};
+    mergeSort(arr, 0, 4);
+    for (int i = 0; i < 6; i++)
     {
-        cout<<arr[i]<<" ";
+        cout << arr[i] << " ";
     }
-    cout<<endl;
+    cout << endl;
     return 0;
-    
 }
