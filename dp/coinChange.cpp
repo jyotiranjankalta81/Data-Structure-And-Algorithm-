@@ -9,3 +9,6 @@
 // (b) Do not take it.
 // cnt(S[],m,V) = cnt(s[],m,V-Sm) + cnt(s[],m-1,V)
 // Since it can be represented as a Recurrence Relation, hence it has Optimal Substructure Property.
+
+// Optimal Substructure Property
+// Overlaping Subproblem Property
