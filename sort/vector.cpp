@@ -1,5 +1,9 @@
+
+// for more details on vector and pair refer the http://www.cplusplus.com/reference/vector/vector/?kw=vector
+
 #include <iostream>
 #include <vector>
+#include <algorithm>
 // #include<bits/stdc++.h>
 using namespace std;
 
@@ -13,21 +17,18 @@ using namespace std;
 //         cout<<v[i]<<endl;
 //     }
 
-
-// iterator 
+// iterator
 //     vector<int>::iterator it;
 //     for (it= v.begin(); it!=v.end(); it++)
 //     {
 //         cout<<*it<<endl;
 //     }
 
-
-// for each 
+// for each
 //     for (auto element:v)
 //     {
 //         cout<<element<<endl;
 //     }
-
 
 //     v.pop_back();
 //     vector<int>v2 (3,50);
