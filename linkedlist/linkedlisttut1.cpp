@@ -1,77 +1,92 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class node{
-    public:
+// node is user defined
+class node
+{
+public:
     int data;
-    // here node* data types that points to next node 
-    node* next;
-
-    node(int val){
-        data=val;
-        next=NULL;
+    // here node* data types that points to next node
+    node *next;
+    // make a constructor for easy work
+    node(int val)
+    {
+        data = val;
+        next = NULL;
     }
-
 };
 
-void insertAtHead(node* &head, int val){
-    node* n= new node(val);
-    n->next=head;
-    head=n;
+void insertAtHead(node *&head, int val)
+{
+    // create a node and add value
+    node *n = new node(val);
+    // now n of next point to the first node
+    n->next = head;
+    // now move head to n
+    head = n;
 }
 
-void insertAtTail(node* &head, int val){
-    node* n = new node(val);
-    if (head==NULL)
+void insertAtTail(node *&head, int val)
+{
+    // create a new node
+    node *n = new node(val);
+    // if there is no node in linked list then
+    if (head == NULL)
     {
         head = n;
         return;
     }
-    node* temp = head;
-    while (temp->next!=NULL)
+    // traverse to last linkedlist start form start till end
+    // starting form start
+    node *temp = head;
+    // traverse till next is null
+    while (temp->next != NULL)
     {
-        temp=temp->next;
+        temp = temp->next;
     }
 
-    temp->next=n;
-    
+    // now add the new node
+    temp->next = n;
 }
 
-void display(node* head){
-    node* temp=head;
-    while (temp!=NULL)
+// for print linkedlist
+void display(node *head)
+{
+    // temp node start form head
+    node *temp = head;
+    while (temp != NULL)
     {
-        cout<<temp->data<<"->";
-        temp=temp->next;
+        cout << temp->data << "->";
+        temp = temp->next;
     }
-    cout<<" NULL"<<endl;
-    
+    cout << " NULL" << endl;
 }
 
-bool search(node* head, int key){
-    node* temp=head;
-    while(temp!=NULL){
-        if (temp->data==key)
+bool search(node *head, int key)
+{
+    node *temp = head;
+    while (temp != NULL)
+    {
+        if (temp->data == key)
         {
             return true;
         }
-        temp=temp->next;
-        
+        temp = temp->next;
     }
     return false;
 }
 
-int main(){
+int main()
+{
 
-    node* head = NULL;
-    insertAtTail(head,1);
-    insertAtTail(head,2);
-    insertAtTail(head,3);
+    node *head = NULL;
+    insertAtTail(head, 1);
+    insertAtTail(head, 2);
+    insertAtTail(head, 3);
     display(head);
-    insertAtHead(head,4);
+    insertAtHead(head, 4);
     display(head);
-    cout<<search(head,3)<<endl;
-
+    cout << search(head, 3) << endl;
 
     return 0;
 }
