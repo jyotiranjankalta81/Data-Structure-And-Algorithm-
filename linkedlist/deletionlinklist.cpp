@@ -1,116 +1,120 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class node{
-    public:
+class node
+{
+public:
     int data;
-    // here node* data types that points to next node 
-    node* next;
+    // here node* data types that points to next node
+    node *next;
 
-    node(int val){
-        data=val;
-        next=NULL;
+    node(int val)
+    {
+        data = val;
+        next = NULL;
     }
-
 };
 
-void insertAtHead(node* &head, int val){
-    node* n= new node(val);
-    n->next=head;
-    head=n;
+void insertAtHead(node *&head, int val)
+{
+    node *n = new node(val);
+    n->next = head;
+    head = n;
 }
 
-void insertAtTail(node* &head, int val){
-    node* n = new node(val);
-    if (head==NULL)
+void insertAtTail(node *&head, int val)
+{
+    node *n = new node(val);
+    if (head == NULL)
     {
         head = n;
         return;
     }
-    node* temp = head;
-    while (temp->next!=NULL)
+    node *temp = head;
+    while (temp->next != NULL)
     {
-        temp=temp->next;
+        temp = temp->next;
     }
 
-    temp->next=n;
-    
+    temp->next = n;
 }
 
-void display(node* head){
-    node* temp=head;
-    while (temp!=NULL)
+void display(node *head)
+{
+    node *temp = head;
+    while (temp != NULL)
     {
-        cout<<temp->data<<"->";
-        temp=temp->next;
+        cout << temp->data << "->";
+        temp = temp->next;
     }
-    cout<<" NULL"<<endl;
-    
+    cout << " NULL" << endl;
 }
 
-bool search(node* head, int key){
-    node* temp=head;
-    while(temp!=NULL){
-        if (temp->data==key)
+bool search(node *head, int key)
+{
+    node *temp = head;
+    while (temp != NULL)
+    {
+        if (temp->data == key)
         {
             return true;
         }
-        temp=temp->next;
-        
+        temp = temp->next;
     }
     return false;
 }
-void deleteAtHead(node* &head){
-    node* todelete=head;
-    head=head->next;
+void deleteAtHead(node *&head)
+{
+    node *todelete = head;
+    head = head->next;
 
     delete todelete;
 }
 
-void deletion(node* &head, int val){
+void deletion(node *&head, int val)
+{
 
     // in case linkedlist is blank
-    if (head==NULL)
+    if (head == NULL)
     {
         return;
     }
 
     // in case there is a single item
-    if (head->next==NULL)
+    if (head->next == NULL)
     {
         deleteAtHead(head);
         return;
     }
-    
-    
 
-    node* temp=head;
-    while (temp->next->data!=val)
+    node *temp = head;
+    // traverse upto data become value
+    while (temp->next->data != val)
     {
-        temp=temp->next;
+        temp = temp->next;
     }
-    node* todelete= temp->next;
-    temp->next=temp->next->next;
+    node *todelete = temp->next;
+    // now address of temp points to next next element 1 2 3 4
+    temp->next = temp->next->next;
 
     delete todelete;
-    
 }
 
-int main(){
+int main()
+{
 
-    node* head = NULL;
-    insertAtTail(head,1);
-    insertAtTail(head,2);
-    insertAtTail(head,3);
+    node *head = NULL;
+    insertAtTail(head, 1);
+    insertAtTail(head, 2);
+    insertAtTail(head, 3);
     display(head);
-    insertAtHead(head,4);
+    insertAtHead(head, 4);
     display(head);
     // cout<<search(head,3)<<endl;
 
     // deletion(head,3);
     deleteAtHead(head);
     display(head);
-
 
     return 0;
 }
