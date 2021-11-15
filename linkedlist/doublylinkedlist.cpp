@@ -1,118 +1,111 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class node{
-    public:
+class node
+{
+public:
     int data;
-    node* next;
-    node* prev;
+    node *next;
+    node *prev;
 
-    node(int val){
-        data=val;
-        next=NULL;
-        prev=NULL;
+    node(int val)
+    {
+        data = val;
+        next = NULL;
+        prev = NULL;
     }
 };
 
-
-void insertAtHead(node* &head, int val){
-    node* n= new node(val);
-    n->next=head;
-    if (head!=NULL)
+void insertAtHead(node *&head, int val)
+{
+    node *n = new node(val);
+    n->next = head;
+    if (head != NULL)
     {
-    head->prev=n;
+        head->prev = n;
     }
-    head=n;
+    head = n;
 }
 
-void insertAtTail(node* &head, int val){
+void insertAtTail(node *&head, int val)
+{
 
-    if (head==NULL)
+    if (head == NULL)
     {
-        insertAtHead(head,val);
+        insertAtHead(head, val);
         return;
     }
-    
 
+    node *n = new node(val);
+    node *temp = head;
 
-    node* n=new node(val);
-    node* temp=head;
-
-    while (temp->next!=NULL)
+    while (temp->next != NULL)
     {
-        temp=temp->next;
+        temp = temp->next;
     }
 
-    temp->next=n;
-    n->prev=temp;
-    
+    temp->next = n;
+    n->prev = temp;
 }
 
-
-void display(node* head){
-    node* temp=head;
-    while(temp!=NULL){
-        cout<<temp->data<<" ";
-        temp=temp->next;
+void display(node *head)
+{
+    node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->data << "->";
+        temp = temp->next;
     }
-    cout<<endl;
-
+    cout << endl;
 }
 
-void deleteAtHead(node* &head){
-    node* todelete=head;
-    head=head->next;
-    head->prev=NULL;
+void deleteAtHead(node *&head)
+{
+    node *todelete = head;
+    head = head->next;
+    head->prev = NULL;
 
     delete todelete;
 }
 
-void deletion(node* &head, int pos){
-    if (pos==1)
+void deletion(node *&head, int pos)
+{
+    if (pos == 1)
     {
         deleteAtHead(head);
         return;
     }
-    
 
+    node *temp = head;
+    int count = 1;
 
-
-
-    node* temp=head;
-    int count=1; 
-
-    while (temp!=NULL && count!=pos)
+    while (temp != NULL && count != pos)
     {
-        temp=temp->next;
+        temp = temp->next;
         count++;
     }
-    temp->prev->next=temp->next;
-    if (temp->next!=NULL)
+    temp->prev->next = temp->next;
+    if (temp->next != NULL)
     {
-    temp->next->prev=temp->prev;
-        
+        temp->next->prev = temp->prev;
     }
-    
 
     delete temp;
-    
 }
 
- 
-int main(){
+int main()
+{
 
-    node* head=NULL;
-    insertAtTail(head,1);
-    insertAtTail(head,2);
-    insertAtTail(head,3);
-    insertAtTail(head,4);
+    node *head = NULL;
+    insertAtTail(head, 1);
+    insertAtTail(head, 2);
+    insertAtTail(head, 3);
+    insertAtTail(head, 4);
     display(head);
-    insertAtHead(head,5);
+    insertAtHead(head, 5);
     display(head);
-    deletion(head,5);
+    deletion(head, 5);
     display(head);
-
-
 
     return 0;
 }
