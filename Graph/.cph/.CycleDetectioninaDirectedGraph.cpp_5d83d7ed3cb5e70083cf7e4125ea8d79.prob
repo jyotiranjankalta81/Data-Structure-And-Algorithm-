@@ -1,1 +1,0 @@
-{"name":"Local: CycleDetectioninaDirectedGraph","url":"d:\\Placement\\C++ coding\\Graph\\CycleDetectioninaDirectedGraph.cpp","tests":[{"id":1624446193598,"input":"4 1\n0 1\n2 3","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Placement\\C++ coding\\Graph\\CycleDetectioninaDirectedGraph.cpp","group":"local","local":true}

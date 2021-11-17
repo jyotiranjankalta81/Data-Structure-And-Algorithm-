@@ -1,1 +1,0 @@
-{"name":"Local: intro","url":"d:\\Placement\\C++ coding\\GreedyAlgo\\intro.cpp","tests":[{"id":1623642160301,"input":"10\n1 2 5 10 20 50 100 200 500 2000\n350","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Placement\\C++ coding\\GreedyAlgo\\intro.cpp","group":"local","local":true}

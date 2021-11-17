@@ -1,1 +1,0 @@
-{"name":"Local: BipartiteGraph","url":"d:\\Placement\\C++ coding\\Graph\\BipartiteGraph.cpp","tests":[{"id":1624619462028,"input":"3 3\n0 1\n1 2\n2 0","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Placement\\C++ coding\\Graph\\BipartiteGraph.cpp","group":"local","local":true}
