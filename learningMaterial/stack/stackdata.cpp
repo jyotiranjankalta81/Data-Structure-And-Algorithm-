@@ -1,74 +1,75 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
+// define the arr size
 #define n 100
 
-class stack{
-    int* arr;
+class stack
+{
+    int *arr;
     int top;
 
-    public:
+public:
     // make a constructor for data structure
-    stack(){
-        arr=new int[n];
-        top=-1;
-
+    stack()
+    {
+        // now allocate the memory to arr
+        arr = new int[n];
+        top = -1;
     }
-
-    void push(int x){
-        if (top==n-1)
+    // first make push operation
+    void push(int x)
+    {
+        if (top == n - 1)
         {
-            cout<<" Stack overflow"<<endl;
+            cout << " Stack overflow" << endl;
             return;
         }
 
         top++;
-        arr[top]=x;
-        
+        arr[top] = x;
     }
-    void pop(){
-        if (top==-1)
+    // here is the pop operation to remove top element
+    void pop()
+    {
+        if (top == -1)
         {
-            cout<<" No element to pop"<<endl;
+            cout << " No element to pop" << endl;
             return;
         }
         top--;
-        
     }
 
-    int Top(){
-        if (top==-1)
+    int Top()
+    {
+        if (top == -1)
         {
-            cout<<" No element in stack"<<endl;
+            cout << " No element in stack" << endl;
             return -1;
         }
-        
+
         return arr[top];
     }
 
-    bool empty(){
-        return top==-1;
-
+    bool empty()
+    {
+        return top == -1;
     }
-
-
-
-
 };
-int main(){
+int main()
+{
 
     stack st;
     st.push(1);
     st.push(2);
     st.push(3);
-    cout<<st.Top()<<endl;
+    cout << st.Top() << endl;
     st.pop();
-    cout<<st.Top()<<endl;
+    cout << st.Top() << endl;
     st.pop();
     st.pop();
     st.pop();
-    cout<<st.empty()<<endl;
-    // return 
-
+    cout << st.empty() << endl;
+    // return
 
     return 0;
 }
