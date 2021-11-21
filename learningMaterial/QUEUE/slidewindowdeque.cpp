@@ -84,7 +84,7 @@ using namespace std;
 // all subarrays of size k
 void printKMax(int arr[], int n, int k)
 {
-	
+
 	// Create a Double Ended Queue,
 	// Qi that will store indexes
 	// of array elements
@@ -97,18 +97,17 @@ void printKMax(int arr[], int n, int k)
 	// are sorted in decreasing order
 	std::deque<int> Qi(k);
 
-	/* Process first k (or first window)
-	elements of array */
+	/* Process first k (or first window) elements of array */
 	int i;
 	for (i = 0; i < k; ++i)
 	{
-	
+
 		// For every element, the previous
 		// smaller elements are useless so
 		// remove them from Qi
 		while ((!Qi.empty()) && arr[i] >=
-							arr[Qi.back()])
-			
+									arr[Qi.back()])
+
 			// Remove from rear
 			Qi.pop_back();
 
@@ -120,7 +119,7 @@ void printKMax(int arr[], int n, int k)
 	// i.e., from arr[k] to arr[n-1]
 	for (; i < n; ++i)
 	{
-	
+
 		// The element at the front of
 		// the queue is the largest element of
 		// previous window, so print it
@@ -129,8 +128,8 @@ void printKMax(int arr[], int n, int k)
 		// Remove the elements which
 		// are out of this window
 		while ((!Qi.empty()) && Qi.front() <=
-										i - k)
-			
+									i - k)
+
 			// Remove from front of queue
 			Qi.pop_front();
 
@@ -139,7 +138,7 @@ void printKMax(int arr[], int n, int k)
 		// being added element (remove
 		// useless elements)
 		while ((!Qi.empty()) && arr[i] >=
-							arr[Qi.back()])
+									arr[Qi.back()])
 			Qi.pop_back();
 
 		// Add current element at the rear of Qi
@@ -154,11 +153,9 @@ void printKMax(int arr[], int n, int k)
 // Driver code
 int main()
 {
-	int arr[] = { 12, 1, 78, 90, 57, 89, 56 };
+	int arr[] = {12, 1, 78, 90, 57, 89, 56};
 	int n = sizeof(arr) / sizeof(arr[0]);
 	int k = 3;
 	printKMax(arr, n, k);
 	return 0;
 }
-
-
