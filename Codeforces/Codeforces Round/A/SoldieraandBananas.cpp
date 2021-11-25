@@ -8,21 +8,36 @@
 // Output
 // Output one integer — the amount of dollars that the soldier must borrow from his friend. If he doesn't have to borrow money, output 0.
 
+// #include <bits/stdc++.h>
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int k, n, w;
+//     cin >> k >> n >> w;
+//     int totalcost = k * ((w * (w + 1)) / 2);
+//     int borrow = totalcost - n;
+//     if (borrow < 1)
+//     {
+//         cout << 0 << endl;
+//     }
+//     else
+//         cout << borrow;
+//     return 0;
+// }
+
 #include <bits/stdc++.h>
-#include <iostream>
 using namespace std;
 
 int main()
 {
-    int k, n, w;
+    int k, n, w, ans = 0;
     cin >> k >> n >> w;
-    int totalcost = k * ((w * (w + 1)) / 2);
-    int borrow = totalcost - n;
-    if (borrow < 1)
-    {
-        cout << 0 << endl;
-    }
+    for (int i = 1; i <= w; i++)
+        ans += k * i;
+    if (ans <= n)
+        cout << 0;
     else
-        cout << borrow;
-    return 0;
+        cout << ans - n;
 }
