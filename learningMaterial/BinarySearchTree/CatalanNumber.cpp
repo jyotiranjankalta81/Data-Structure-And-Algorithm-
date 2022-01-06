@@ -29,7 +29,8 @@ int uniqueBSTs(int n)
 // Driver code
 int main()
 {
-    int n = 2;
+    int n;
+    cin >> n;
 
     // Function call
     cout << uniqueBSTs(n);

@@ -21,16 +21,17 @@
 using namespace std;
 
 // BST node
-struct Node {
+struct Node
+{
 	int data;
-	struct Node* left;
-	struct Node* right;
+	struct Node *left;
+	struct Node *right;
 };
 
 // Utility function to create a new Node
-struct Node* newNode(int data)
+struct Node *newNode(int data)
 {
-	struct Node* node = (struct Node*)
+	struct Node *node = (struct Node *)
 		malloc(sizeof(struct Node));
 	node->data = data;
 	node->left = NULL;
@@ -40,7 +41,7 @@ struct Node* newNode(int data)
 }
 
 // Function to perform inorder traversal
-void inorder(Node* root)
+void inorder(Node *root)
 {
 	if (root == NULL)
 		return;
@@ -54,7 +55,7 @@ void inorder(Node* root)
 
 // Function to check if two BSTs
 // are identical
-int isIdentical(Node* root1, Node* root2)
+int isIdentical(Node *root1, Node *root2)
 {
 	// Check if both the trees are empty
 	if (root1 == NULL && root2 == NULL)
@@ -65,10 +66,10 @@ int isIdentical(Node* root1, Node* root2)
 		return 0;
 	else if (root1 == NULL && root2 != NULL)
 		return 0;
-	else { // Check if current data of both trees equal
+	else
+	{ // Check if current data of both trees equal
 		// and recursively check for left and right subtrees
-		if (root1->data == root2->data && isIdentical(root1->left, root2->left)
-			&& isIdentical(root1->right, root2->right))
+		if (root1->data == root2->data && isIdentical(root1->left, root2->left) && isIdentical(root1->right, root2->right))
 			return 1;
 		else
 			return 0;
@@ -78,8 +79,8 @@ int isIdentical(Node* root1, Node* root2)
 // Driver code
 int main()
 {
-	struct Node* root1 = newNode(5);
-	struct Node* root2 = newNode(5);
+	struct Node *root1 = newNode(5);
+	struct Node *root2 = newNode(5);
 	root1->left = newNode(3);
 	root1->right = newNode(8);
 	root1->left->left = newNode(2);
@@ -97,4 +98,3 @@ int main()
 
 	return 0;
 }
-
