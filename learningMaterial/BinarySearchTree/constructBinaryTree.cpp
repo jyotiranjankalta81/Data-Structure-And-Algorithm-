@@ -30,9 +30,9 @@ node *newNode(int data)
 }
 
 // A recursive function to construct
-// BST from pre[]. preIndex is usedc
-// to keep track of index in pre[].
-node *constructTreeUtil(int pre[], int *preIndex, int key,
+// BST from preorder[]. preIndex is usedc
+// to keep track of index in preorder[].
+node *constructTreeUtil(int preorder[], int *preIndex, int key,
 						int min, int max, int size)
 {
 	// Base case
@@ -41,7 +41,7 @@ node *constructTreeUtil(int pre[], int *preIndex, int key,
 
 	node *root = NULL;
 
-	// If current element of pre[] is in range, then
+	// If current element of preorder[] is in range, then
 	// only it is part of current subtree
 	if (key > min && key < max)
 	{
@@ -57,8 +57,8 @@ node *constructTreeUtil(int pre[], int *preIndex, int key,
 			// {min .. key} will go in left
 			// subtree, and first such node
 			// will be root of left subtree.
-			root->left = constructTreeUtil(pre, preIndex,
-										   pre[*preIndex],
+			root->left = constructTreeUtil(preorder, preIndex,
+										   preorder[*preIndex],
 										   min, key, size);
 		}
 		if (*preIndex < size)
@@ -67,8 +67,8 @@ node *constructTreeUtil(int pre[], int *preIndex, int key,
 			// {key..max} will go in right
 			// subtree, and first such node
 			// will be root of right subtree.
-			root->right = constructTreeUtil(pre, preIndex,
-											pre[*preIndex],
+			root->right = constructTreeUtil(preorder, preIndex,
+											preorder[*preIndex],
 											key, max, size);
 		}
 	}
@@ -79,10 +79,10 @@ node *constructTreeUtil(int pre[], int *preIndex, int key,
 // The main function to construct BST
 // from given preorder traversal.
 // This function mainly uses constructTreeUtil()
-// node* constructTree(int pre[], int size)
+// node* constructTree(int preorder[], int size)
 // {
 // 	int preIndex = 0;
-// 	return constructTreeUtil(pre, &preIndex, pre[0],
+// 	return constructTreeUtil(preorder, &preIndex, preorder[0],
 // 							INT_MIN, INT_MAX, size);
 // }
 
@@ -100,13 +100,13 @@ void printPreorder(node *node)
 // Driver code
 int main()
 {
-	int pre[] = {10, 5, 1, 7, 40, 50};
-	int size = sizeof(pre) / sizeof(pre[0]);
+	int preorder[] = {10, 5, 1, 7, 60, 50};
+	int size = sizeof(preorder) / sizeof(preorder[0]);
 
 	// Function call
-	// node* root = constructTree(pre, size);
+	// node* root = constructTree(preorder, size);
 	int preIndex = 0;
-	node *root = constructTreeUtil(pre, &preIndex, pre[0],
+	node *root = constructTreeUtil(preorder, &preIndex, preorder[0],
 								   INT_MIN, INT_MAX, size);
 
 	cout << "Inorder traversal of the constructed tree: \n";
