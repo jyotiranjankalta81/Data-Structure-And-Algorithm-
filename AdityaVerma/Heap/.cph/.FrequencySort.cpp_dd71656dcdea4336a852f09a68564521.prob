@@ -1,0 +1,1 @@
+{"name":"Local: FrequencySort","url":"d:\\Placement\\Data-Structure-And-Algorithm-\\AdityaVerma\\Heap\\FrequencySort.cpp","tests":[{"id":1642604526259,"input":"1\n10\n5 5 5 8 8 8 2 2 7 9","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Placement\\Data-Structure-And-Algorithm-\\AdityaVerma\\Heap\\FrequencySort.cpp","group":"local","local":true}
