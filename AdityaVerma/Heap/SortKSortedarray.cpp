@@ -35,7 +35,7 @@
 // }
 // int main()
 // {
-//     int arr[] = {6, 5, 3, 2, 8, 10, 9};
+//     int arr[] = {6, 5, 3, 1, 10, 9, 2};
 //     int n = sizeof(arr) / sizeof(arr[0]);
 //     int k = 3;
 //     cout << "Sort the k sorted array in which k = 3" << endl;
