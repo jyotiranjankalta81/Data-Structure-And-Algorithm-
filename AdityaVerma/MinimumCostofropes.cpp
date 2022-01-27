@@ -27,17 +27,6 @@ public:
             pq.pop();
             pq.push(first + second);
             ans = ans + first + second;
-            // if(!pq.empty()){
-            //     x=pq.top();
-            //     pq.pop();
-            // }
-            // if(!pq.empty()){
-            //     y=pq.top();
-            //     pq.pop();
-            // }
-            // pq.push(x+y);
-            // ans+=(x+y);
-            // v.push_back(x+y);
         }
         return ans;
     }
