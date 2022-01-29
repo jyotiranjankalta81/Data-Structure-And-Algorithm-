@@ -1,7 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-
+#define watch(x) cout << (#x) << " = " << (x) << endl
+#define PI double(2 * acos(0.0))
+#define LL long long
+#define MOD 1000000007
+#define all(x) (x).begin(), (x).end()
+#define INF 1e15
 int main()
 {
     ios_base::sync_with_stdio(0);
